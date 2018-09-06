@@ -23,6 +23,7 @@ var (
 
 func main() {
 	flag.Parse()
+	//fmr.Debug = true
 	g, err := fmr.GrammarFromFile(*grammar)
 	if err != nil {
 		glog.Fatal(err)
@@ -58,10 +59,9 @@ func main() {
 		}
 		line = strings.TrimSpace(line)
 		fmt.Println(line)
-		//p, err := g.EarleyParse(*start, line)
-		//fmt.Println(p, err)
-		//TODO p.GetTrees for (any)
-		//p.GetTrees()
+		if len(line) == 0 {
+			continue
+		}
 
 		ps, err := g.EarleyParseMaxAll(line, *start)
 		if err != nil {

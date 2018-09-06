@@ -1,6 +1,10 @@
 var nf = nf || {};
 nf.math = {};
 
+nf.math.to_number = function(s) {
+    return Number(s);
+}
+
 nf.math.sum = function(x, y) {
     //console.log(typeof(x), typeof(y));
     //console.log(x, y);
