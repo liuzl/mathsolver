@@ -4,7 +4,7 @@
 <number> = <numeric> /*ok*/ {nf.math.to_number($1)};
 
 <result> = <number>  "plus" /*comments*/<number> {nf.math.sum($1,$3)}
-         | "the" "sum" "of" <number> "and" <number> {nf.math.sum($4,$6)}
+         | "the sum of" <number> "and" <number> {nf.math.sum($2,$4)}
          | <number> "与" <number> "的和" {nf.math.sum($1,$3)}
          ;
 
