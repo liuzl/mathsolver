@@ -19,6 +19,7 @@ var (
 	js      = flag.String("js", "math.js", "javascript file")
 	input   = flag.String("i", "", "file of original text to read")
 	start   = flag.String("start", "result", "start rule")
+	eval    = flag.Bool("eval", false, "execute flag")
 )
 
 func main() {
@@ -73,18 +74,21 @@ func main() {
 				//fmt.Printf("%+v\n", p)
 				fmt.Printf("p%d tree number:%d\n", i, len(trees))
 				for _, tree := range trees {
-					//tree.Print(os.Stdout)
 					sem, err := tree.Semantic()
-					//fmt.Println(sem)
 					if err != nil {
 						glog.Fatal(err)
 					}
-					result, err := vm.Run(sem)
-					if err != nil {
-						glog.Error(err)
+
+					if !*eval {
+						fmt.Println(sem)
+					} else {
+						result, err := vm.Run(sem)
+						if err != nil {
+							glog.Error(err)
+						}
+						rs, _ := result.Export()
+						fmt.Printf("%s = %+v\n", sem, rs)
 					}
-					rs, _ := result.Export()
-					fmt.Printf("%s = %+v\n", sem, rs)
 					//eval, err := tree.Eval()
 					//fmt.Printf("Eval: %s, Err: %+v\n", eval, err)
 				}
