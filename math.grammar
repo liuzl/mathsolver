@@ -1,9 +1,11 @@
 #include "number.grammar"
+#include "number.cn.grammar"
 
 <number> = <numeric> /*ok*/ {nf.math.to_number($1)};
 
 <result> = <number>  "plus" /*comments*/<number> {nf.math.sum($1,$3)}
          | "the" "sum" "of" <number> "and" <number> {nf.math.sum($4,$6)}
+         | <number> "与" <number> "的和" {nf.math.sum($1,$3)}
          ;
 
 /* zhanliangliu */
