@@ -19,7 +19,7 @@ var (
 	grammar    = flag.String("g", "math.grammar", "grammar file")
 	js         = flag.String("js", "math.js", "javascript file")
 	input      = flag.String("i", "", "file of original text to read")
-	start      = flag.String("start", "result", "start rule")
+	start      = flag.String("start", "number", "start rule")
 	eval       = flag.Bool("eval", false, "execute flag")
 	debug      = flag.Bool("debug", false, "debug mode")
 	cpuprofile = flag.String("cpuprofile", "", "write cpu profile to file")

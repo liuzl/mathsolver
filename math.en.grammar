@@ -7,12 +7,12 @@
 // for local grammars that come from regex tagger
 <number> = <numeric> {nf.math.to_number($1)};
 
-<sum> = <number> "plus" <number> {nf.math.sum($1,$3)}
+<number> = <number> "plus" <number> {nf.math.sum($1,$3)}
       | <number> "added to" <number> {nf.math.sum($3, $1)}
       | "sum of" <number> "and" <number> {nf.math.sum($2,$4)}
       ;
 
-<power> = <number> "raised to the power of" <number> {nf.math.pow($1,$2)}
+<number> = <number> "raised to the power of" <number> {nf.math.pow($1,$2)}
         | <number> "raised to the exponent of" <number> {nf.math.pow($1,$2)}
         ;
 
@@ -21,4 +21,3 @@
       | <number> "be" <number> {vf.be.equ($1,$2)}
       ;
 
-<result> = <sum> {nf.I($1)} | <power> {nf.I($1)};
