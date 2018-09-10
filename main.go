@@ -21,11 +21,16 @@ var (
 	input      = flag.String("i", "", "file of original text to read")
 	start      = flag.String("start", "result", "start rule")
 	eval       = flag.Bool("eval", false, "execute flag")
+	debug      = flag.Bool("debug", false, "debug mode")
 	cpuprofile = flag.String("cpuprofile", "", "write cpu profile to file")
 )
 
 func main() {
 	flag.Parse()
+	if *debug {
+		fmr.Debug = true
+	}
+
 	if *cpuprofile != "" {
 		f, err := os.Create(*cpuprofile)
 		if err != nil {
