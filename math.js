@@ -6,8 +6,6 @@ nf.math.to_number = function(s) {
 }
 
 nf.math.sum = function(x, y) {
-    //console.log(typeof(x), typeof(y));
-    //console.log(x, y);
     return x + y;
 };
 nf.math.sub = function(x, y) {
@@ -18,5 +16,9 @@ nf.math.mul = function(x, y) {
 }
 nf.math.neg = function(x) {
     return -x;
+}
+
+nf.math.pow = function(x, y) {
+    return Math.pow(x, y);
 }
 
