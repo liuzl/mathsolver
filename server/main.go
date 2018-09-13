@@ -83,7 +83,7 @@ func MathHandler(w http.ResponseWriter, r *http.Request) {
 	if start == "" {
 		start = "number"
 	}
-	p, err := G().EarleyParse(text, start)
+	p, err := G().EarleyParseAny(text, start)
 	if err != nil {
 		errMsg(w, err.Error())
 		return
