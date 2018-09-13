@@ -7,6 +7,14 @@
 // for local grammars that come from regex tagger
 <number> = <numeric> {nf.math.to_number($1)};
 
+<special_number> = "pair"   {nf.I(2)}
+                 | "couple" {nf.I(2)}
+                 | "dozen"  {nf.I(12)}
+                 ;
+<number> = <special_number>          {nf.I($1)}
+         | <number> <special_number> {nf.math.mul($1,$2)}
+         ;
+
 <number> = <number> "plus" <number>         {nf.math.sum($1,$3)}
          | <number> "added to" <number>     {nf.math.sum($3, $1)}
          | "sum of" <number> "and" <number> {nf.math.sum($2,$4)}
