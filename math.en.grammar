@@ -24,6 +24,7 @@
 
 <number> = <number> "times" <number>            {nf.math.mul($1,$3)}
          | <number> "multiply by" <number>      {nf.math.mul($1,$3)}
+         | "multiply" <number> "by" <number>    {nf.math.mul($2,$4)}
          | "product of" <number> "and" <number> {nf.math.mul($2,$4)}
          | "half of" <number>                   {nf.math.mul($2,0.5)}
          ;
