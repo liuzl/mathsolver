@@ -40,6 +40,10 @@ function one(k, v) {
 }
 
 function visual(doc) {
+    if (doc == null || doc.length == 0) {
+        $("#visual").html("<h4>no result</h4>");
+        return
+    }
     var html = "";
     for (var i = 0; i < doc.length; i++) {
         var k = "result " + (i+1);
