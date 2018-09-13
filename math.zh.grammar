@@ -17,7 +17,7 @@
          | <number> "与" <number> "的差" {nf.math.sub($1,$3)}
          ;
 
-<fraction> = <number> "分之" <number> {nf.math.div($1,$3)}
+<fraction> = <number> "分之" <number> {nf.math.div($3,$1)}
            ;
 
 <number> = <number> "乘" <number>        {nf.math.mul($1,$3)}
