@@ -38,6 +38,7 @@
 <cn_num_100000000> = "亿" {nf.I(100000000)};
 
 <cn_num_10s> = <cn_num_10>                             {nf.I($1)}
+             | <cn_num_10> <cn_num_unit>               {nf.math.sum($1,$2)}
              | <cn_num_unit> <cn_num_10>               {nf.math.mul($1, $2)}
              | <cn_num_unit> <cn_num_10> <cn_num_unit> {nf.math.sum(nf.math.mul($1, $2), $3)}
              | <cn_num_unit>                           {nf.I($1)}
