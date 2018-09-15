@@ -58,6 +58,7 @@ func JS() *otto.Otto {
 }
 
 type Result struct {
+	NL  string      `json:"nl"`
 	FMR string      `json:"fmr"`
 	V   interface{} `json:"v"`
 }
@@ -104,7 +105,7 @@ func MathHandler(w http.ResponseWriter, r *http.Request) {
 				return
 			}
 			rs, _ := result.Export()
-			results = append(results, &Result{sem, rs})
+			results = append(results, &Result{tree.NL(), sem, rs})
 		}
 	}
 	rest.MustEncode(w, results)
