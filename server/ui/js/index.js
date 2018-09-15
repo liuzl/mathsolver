@@ -47,11 +47,10 @@ function visual(doc) {
     var html = "";
     for (var i = 0; i < doc.length; i++) {
         var k = "result " + (i+1);
-        var v = "<pre>" + prettier.format(doc[i]['fmr'], {
-            parser: "babylon",
-            plugins: prettierPlugins,
-            printWidth: 30
-          })+"</pre>"+"<pre>denotation: "+doc[i]['v']+"</pre>";
+        var v = "<pre>" + doc[i]['nl'] + "</pre><pre>" +
+            prettier.format(doc[i]['fmr'], {
+                parser: "babylon", plugins: prettierPlugins, printWidth: 30
+            })+"</pre>"+"<pre>denotation: "+doc[i]['v']+"</pre>";
 
         html += one(k, v);
     }
