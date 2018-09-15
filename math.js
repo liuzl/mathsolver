@@ -1,5 +1,6 @@
 var nf = nf || {};
 nf.math = {};
+nf.util = {};
 
 nf.math.to_number = function(s) {
     return Number(s);
@@ -29,3 +30,6 @@ nf.math.pow = function(x, y) {
     return Math.pow(x, y);
 }
 
+nf.util.concat = function(x, y) {
+    return x.toString() + y.toString();
+}

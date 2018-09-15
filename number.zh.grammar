@@ -35,6 +35,12 @@
           | "0" {nf.I(0)}
           ;
 
+<cn_digit> = <cn_num_unit> {nf.I($1)} | <cn_zero> {nf.I($1)} | <digits> {nf.I($1)};
+
+<numbers> = <cn_digit> {nf.I($1)}
+          | <cn_digit> <numbers> {nf.util.concat($1, $2)}
+          ;
+
 <cn_num_10> = "十" {nf.I(10)}
             | "拾" {nf.I(10)}
             ;
