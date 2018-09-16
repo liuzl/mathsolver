@@ -94,5 +94,10 @@
             | <cn_num_10000s>                                              {nf.I($1)}
             ;
 
-<number> = <cn_num_yi> {nf.I($1)};
+<cn_decimal> = "点" <numbers> {nf.math.decimal($2)};
+
+<number> = <cn_num_yi>  {nf.I($1)}
+         | <cn_decimal> {nf.I($1)}
+         | <cn_num_yi> <cn_decimal> {nf.math.sum($1,$2)}
+         ;
 

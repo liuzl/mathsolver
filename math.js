@@ -6,6 +6,12 @@ nf.math.to_number = function(s) {
     return Number(s);
 }
 
+nf.math.decimal = function(s) {
+    s = s.toString();
+    var n = Number(s);
+    return n / Math.pow(10, s.length);
+}
+
 nf.math.sum = function(x, y) {
     return x + y;
 }
