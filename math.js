@@ -2,6 +2,10 @@ var nf = nf || {};
 nf.math = {};
 nf.util = {};
 
+nf.list = function(type, cnt) {
+    //TODO
+}
+
 nf.math.to_number = function(s) {
     return Number(s);
 }
