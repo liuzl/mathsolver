@@ -6,6 +6,9 @@ nf.list = function(type, cnt) {
     //TODO
 }
 
+nf.it = function() {}
+nf.what = function() {}
+
 nf.math.to_number = function(s) {
     return Number(s);
 }
