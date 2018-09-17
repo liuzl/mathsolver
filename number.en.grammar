@@ -10,6 +10,10 @@
                 | "nine"  {nf.I(9)}
                 ;
 
+<numbers> = <cardinal_unit> {nf.I($1)}
+          | <cardinal_unit> <numbers> {nf.util.concat($1,$2)}
+          ;
+
 <cardinal_ten> = "ten"       {nf.I(10)}
                | "eleven"    {nf.I(11)}
                | "twelve"    {nf.I(12)}
@@ -97,7 +101,15 @@
           | <base_number> {nf.I($1)}
           ;
 
-<number> = <section> {nf.I($1)}
-         | <section> <number> {nf.math.sum($1, $2)}
-         | <section> "and" <number> {nf.math.sum($1, $3)}
+<en_decimal> = "point" <numbers> {nf.math.decimal($2)};
+
+<en_number> = <section> {nf.I($1)}
+         | <section> <en_number> {nf.math.sum($1, $2)}
+         | <section> "and" <en_number> {nf.math.sum($1, $3)}
+         ;
+
+<number> = <en_number> {nf.I($1)}
+         | <en_decimal> {nf.I($1)}
+         | <en_number> <en_decimal> {nf.math.sum($1,$2)}
+         | <en_number> "and" <en_decimal> {nf.math.sum($1,$3)}
          ;
