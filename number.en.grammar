@@ -1,3 +1,5 @@
+#include "number.grammar"
+
 <cardinal_unit> = "zero"  {nf.I(0)} | "o" {nf.I(0)}
                 | "one"   {nf.I(1)} | "a" {nf.I(1)} | "an" {nf.I(1)}
                 | "two"   {nf.I(2)}
@@ -8,6 +10,7 @@
                 | "seven" {nf.I(7)}
                 | "eight" {nf.I(8)}
                 | "nine"  {nf.I(9)}
+                | <num_unit> {nf.I($1)} | <zero> {nf.I($1)}
                 ;
 
 <numbers> = <cardinal_unit> {nf.I($1)}
@@ -24,6 +27,7 @@
                | "seventeen" {nf.I(17)}
                | "eighteen"  {nf.I(18)}
                | "nineteen"  {nf.I(19)}
+               | <num_tenx> {nf.I($1)}
                ;
         
 <ordinal_unit> = "first"   {nf.I(1)}
@@ -57,6 +61,7 @@
                 | "seventy" {nf.I(70)}
                 | "eighty"  {nf.I(80)}
                 | "ninety"  {nf.I(90)}
+                | <num_xten> {nf.I($1)}
                 ;
                
 <ordinal_tens> = "twentieth"  {nf.I(20)}
