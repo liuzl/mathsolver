@@ -17,3 +17,8 @@ dicts
 
 1000.txt
 profile.prof
+
+zerolog
+server/server
+server/*.grammar
+server/*.js
