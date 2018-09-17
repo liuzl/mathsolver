@@ -80,11 +80,11 @@ func MathHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	start := strings.TrimSpace(r.FormValue("s"))
-	if start == "" {
-		start = "number"
+	s := strings.TrimSpace(r.FormValue("s"))
+	if s == "" {
+		s = *start
 	}
-	p, err := G().EarleyParseAny(text, start)
+	p, err := G().EarleyParseAny(text, s)
 	if err != nil {
 		errMsg(w, err.Error())
 		return
