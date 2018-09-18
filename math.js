@@ -9,6 +9,8 @@ nf.list = function(type, cnt) {
 nf.it = function() {}
 nf.what = function() {}
 
+nf.variable = function() {}
+
 nf.math.to_number = function(s) {
     return Number(s);
 }
