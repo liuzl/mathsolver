@@ -1,5 +1,3 @@
-#include "number.grammar"
-
 <cn_num_unit> = "一" {nf.I(1)}
               | "二" {nf.I(2)}
               | "三" {nf.I(3)}
@@ -21,12 +19,10 @@
               | "两" {nf.I(2)}
               | "俩" {nf.I(2)}
               | "仨" {nf.I(3)}
-              | <num_unit> {nf.I($1)}
               ;
 
 <cn_zero> = "零" {nf.I(0)}
           | "〇" {nf.I(0)}
-          | <zero> {nf.I($1)}
           ;
 
 <cn_digit> = <cn_num_unit> {nf.I($1)} | <cn_zero> {nf.I($1)} | <digits> {nf.I($1)};
