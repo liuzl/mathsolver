@@ -7,11 +7,16 @@
 
 <F> = "(" <E> ")" {nf.I($2)};
 
-<T> = <T> "*" <F> {nf.math.mul($1,$3)}
-    | <T> "×" <F> {nf.math.mul($1,$3)}
-    | <T> "/" <F> {nf.math.div($1,$3)}
-    | <T> "÷" <F> {nf.math.div($1,$3)}
+<Q> = <F> "^" <Q>  {nf.math.pow($1,$3)}
+    | <F> "**" <Q> {nf.math.pow($1,$3)}
     | <F> {nf.I($1)}
+    ;
+
+<T> = <T> "*" <Q> {nf.math.mul($1,$3)}
+    | <T> "×" <Q> {nf.math.mul($1,$3)}
+    | <T> "/" <Q> {nf.math.div($1,$3)}
+    | <T> "÷" <Q> {nf.math.div($1,$3)}
+    | <Q> {nf.I($1)}
     ;
 
 <E> = <E> "+" <T> {nf.math.sum($1,$3)}
