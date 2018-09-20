@@ -2,7 +2,7 @@
 #include "math.zh.grammar"
 
 <F> = <number> {nf.I($1)}
-    | <word>   {nf.id($1)}
+    | <letters>   {nf.id($1)}
     ;
 
 <F> = "(" <E> ")" {nf.I($2)};

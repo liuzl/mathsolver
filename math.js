@@ -9,7 +9,7 @@ nf.list = function(type, cnt) {
 nf.it = function() {}
 nf.what = function() {}
 
-nf.id = function() {}
+nf.id = function() { return 0; }
 
 nf.math.to_number = function(s) {
     return Number(s);
