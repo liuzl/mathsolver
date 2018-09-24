@@ -9,7 +9,9 @@ nf.list = function(type, cnt) {
 nf.it = function() {}
 nf.what = function() {}
 
-nf.math.expression = function() { return 0; }
+nf.math.expression = function(s) {
+    return s.split("").join('*');
+}
 
 nf.math.to_number = function(s) {
     return Number(s);
