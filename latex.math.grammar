@@ -37,7 +37,7 @@
           | <Exp> "\\geq" <Exp> {vf.be.geq($1,$3)}
           | <Exp> "<" <Exp> {vf.be.lt($1,$3)}
           | <Exp> "\\leq" <Exp> {vf.be.leq($1,$3)}
-          | <Exp> "\\" <letters> <Exp> {nf.math.func($3,$1,$4)}
+          | <Exp> "\\ " <letters> <Exp> {nf.math.func($3,$1,$4)}
           ;
 
 <start> = <VerbExp> {nf.I($1)}
