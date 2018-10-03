@@ -81,3 +81,7 @@ vf.be.lt = function(x, y) {
 vf.be.leq = function(x, y) {
     return x + "<=" + y;
 }
+
+nf.math.func = function(name, x, y) {
+    return name+"("+x+","+y+")";
+}
