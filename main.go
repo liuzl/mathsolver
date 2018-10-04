@@ -99,10 +99,11 @@ func main() {
 					} else {
 						result, err := vm.Run(sem)
 						if err != nil {
-							glog.Error(err)
+							glog.Error(sem, err)
+							continue
 						}
 						rs, _ := result.Export()
-						fmt.Printf("%s = %+v\n", sem, rs)
+						fmt.Printf("%s => %+v\n", sem, rs)
 					}
 					//eval, err := tree.Eval()
 					//fmt.Printf("Eval: %s, Err: %+v\n", eval, err)
