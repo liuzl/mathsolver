@@ -43,6 +43,11 @@
           | <Exp> "\\ " <letters> <Exp> {nf.math.func($3,$1,$4)}
           ;
 
+<Func> = "f"|"g";
+
+<Exp> = <Func> "(" <Exp> ")" {nf.math.func($1,$3)};
+
+
 <start> = <VerbExp> {nf.I($1)}
         | <Exp> {nf.I($1)}
         ;
