@@ -37,6 +37,9 @@ nf.math.sub = function(x, y) {
 
 nf.math.mul = function(x, y) {
     //return x * y;
+    if (x=="f" || x=="g") {
+        throw "func, not mul";
+    }
     return "("+x+"*"+y+")";
 }
 
@@ -82,6 +85,10 @@ vf.be.leq = function(x, y) {
     return x + "<=" + y;
 }
 
-nf.math.func = function(name, x, y) {
+nf.math.op = function(name, x, y) {
     return name+"("+x+","+y+")";
+}
+
+nf.math.func = function(name, x) {
+    return name+"("+x+")";
 }
