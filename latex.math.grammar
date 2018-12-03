@@ -24,7 +24,7 @@
 <SignExp> = "+" <PriExp> {nf.I($2)}
           ;
 
-<PriExp> = "(" <Exp> ")" {nf.I($2)}
+<PriExp> = "\(" <Exp> ")" {nf.I($2)}
          | "{" <Exp> "}" {nf.I($2)}
          | "|" <Exp> "|" {nf.math.abs($2)}
          | <numeric> {nf.math.to_number($1)}
@@ -45,7 +45,7 @@
 
 <Func> = "f"|"g";
 
-<Exp> = <Func> "(" <Exp> ")" {nf.math.func($1,$3)};
+<Exp> = <Func> "\(" <Exp> ")" {nf.math.func($1,$3)};
 
 
 <start> = <VerbExp> {nf.I($1)}
