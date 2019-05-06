@@ -20,7 +20,7 @@
          | <PriExp> {nf.I($1)}
          ;
 
-<PriExp> = "(" <Exp> ")" {nf.I($2)}
+<PriExp> = "\(" <Exp> ")" {nf.I($2)}
          | "+" <PriExp> {nf.I($2)}
          | "-" <PriExp> {nf.math.neg($2)}
          | <number> {nf.I($1)}
