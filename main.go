@@ -16,7 +16,7 @@ import (
 )
 
 var (
-	grammar    = flag.String("g", "math.grammar", "grammar file")
+	grammar    = flag.String("g", "grammars/math.grammar", "grammar file")
 	js         = flag.String("js", "math.js", "javascript file")
 	input      = flag.String("i", "", "file of original text to read")
 	start      = flag.String("start", "number", "start rule")
