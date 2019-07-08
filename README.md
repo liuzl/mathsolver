@@ -35,3 +35,7 @@ nf.math.sum(
 ```
 106868922.9132846
 ```
+
+## 参考资料
+
+* [NUMBERS IN ENGLISH](https://www.ef.com/wwen/english-resources/english-grammar/numbers-english/)
