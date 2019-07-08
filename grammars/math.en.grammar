@@ -7,9 +7,10 @@
 // for local grammars that come from regex tagger
 <number> = <numeric> {nf.math.to_number($1)};
 
-<special_number> = "pair"   {nf.I(2)}
-                 | "couple" {nf.I(2)}
-                 | "dozen"  {nf.I(12)}
+<special_number> = "pair"    {nf.I(2)}
+                 | "couple"  {nf.I(2)}
+                 | "dozen"   {nf.I(12)}
+                 | "percent" {nf.I(0.01)}
                  ;
 <number> = <special_number>          {nf.I($1)}
          | <number> <special_number> {nf.math.mul($1,$2)}
