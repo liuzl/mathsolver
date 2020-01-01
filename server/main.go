@@ -19,7 +19,6 @@ var (
 	grammar = flag.String("g", "math.grammar", "grammar file")
 	jsfile  = flag.String("js", "math.js", "javascript file")
 	start   = flag.String("start", "number", "start rule")
-	eval    = flag.Bool("eval", false, "execute flag")
 )
 
 var (
