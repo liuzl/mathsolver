@@ -7,11 +7,11 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/GeertJohan/go.rice"
+	rice "github.com/GeertJohan/go.rice"
 	"github.com/golang/glog"
 	"github.com/liuzl/fmr"
-	"github.com/liuzl/goutil/rest"
 	"github.com/robertkrimen/otto"
+	"zliu.org/goutil/rest"
 )
 
 var (
